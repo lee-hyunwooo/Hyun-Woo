@@ -4,6 +4,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="board.BoardDTO" %>
 <%@ page import="board.BoardDAO" %>
+<%@ page import = "board.BoardComment" %>
+<%@ page import = "java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,19 +16,20 @@
 <%
 
 		//DAO 작업
-	String delete_numberValue = request.getParameter("post_number");
-		int post_number = Integer.parseInt(delete_numberValue);
+	String post_numberValue = request.getParameter("post_number");
+		int post_number = Integer.parseInt(post_numberValue);
 		//DAO 작업
-			BoardDTO bd = new BoardDAO().getBoard(post_number);
+			BoardDTO db = new BoardDAO().getBoard(post_number);
 	%>
 
 	<form action="deleteServlet" method="post">
 	
 		
-		<input type = "text" id ="post_number" name="post_number" value=<%= bd.getPost_number() %> required>
+		<input type = "text" id ="post_number" name="post_number" value ="<%=db.getPost_number() %>"> 
 		
 		<input type ="submit" value="삭제하기">
 	</form>
+		
 
 	
 </body>

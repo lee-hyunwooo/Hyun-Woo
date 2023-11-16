@@ -36,13 +36,15 @@ public class deleteServlet extends HttpServlet {
 		}
 		try {
 			connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+			
+			
 			int post_number = Integer.parseInt(request.getParameter("post_number"));
 		
 			String sql = "DELETE FROM boards WHERE post_number = ?" ;
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setInt(1, post_number);
 			
-			ps.executeQuery();
+			ps.executeUpdate();
 			
 			response.sendRedirect("boardList.jsp");
 		} catch (SQLException e) {

@@ -118,18 +118,31 @@
 			<span class="close-btn" onclick="closePopup()">&times;</span>
 
 
+				<%
+	}
+%>
+ 
+ <%
+		//String = id 값을 가지고 오겠다.
+		String tour_idValue = request.getParameter("tour_id");
+		int tour_id = Integer.parseInt(tour_idValue);
+		//DAO 작업
+			Tour bd = new TourDAO().getTour(tour_id);
+	
+
+	%>
 
 
 
 			<form>
-				<img src="<%= t.getTour_img() %>" id="inImage">
+				<img src="<%= bd.getTour_img() %>" id="inImage">
 				<br><br>
-				<p>도시 이름 : <%= t.getCity_id()%></p> <br>
-				<p>관광지 이름 : </p> <%= t.getTour_name()%><br>
-				<p>관광지 주소 : </p> <%= t.getTour_location()%> <br>
-				<p>관광지 전화번호 : </p><%= t.getTour_phone()%> <br>
-				<p>운영시간 : </p> <%= t.getTour_time()%> <br>
-				<p>좋아요 수 : </p> <%= t.getTour_like()%> <br>
+				<p>도시 이름 : <%= bd.getCity_id()%></p> <br>
+				<p>관광지 이름 : </p> <%= bd.getTour_name()%><br>
+				<p>관광지 주소 : </p> <%= bd.getTour_location()%> <br>
+				<p>관광지 전화번호 : </p><%= bd.getTour_phone()%> <br>
+				<p>운영시간 : </p> <%= bd.getTour_time()%> <br>
+				<p>좋아요 수 : </p> <%= bd.getTour_like()%> <br>
 				<p >관광지 정보 : </p>
 				
 	
@@ -138,10 +151,6 @@
 		</div>
 	</div>
 	</div>		
-
-				<%
-	}
-%>
 
 
 
