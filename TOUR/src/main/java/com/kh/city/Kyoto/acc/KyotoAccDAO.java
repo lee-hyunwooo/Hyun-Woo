@@ -29,7 +29,7 @@ public class KyotoAccDAO {
 	    	List<KyotoAcc> accs = new ArrayList<>();
 	        try {
 	            Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-	            String sql = "SELECT * FROM accomodation WHERE Kyoto";
+	            String sql = "SELECT * FROM accomodation WHERE city_name = 'Kyoto'";
 	            PreparedStatement ps = connection.prepareStatement(sql);
 	            ResultSet rs = ps.executeQuery();
 	            while (rs.next()) {

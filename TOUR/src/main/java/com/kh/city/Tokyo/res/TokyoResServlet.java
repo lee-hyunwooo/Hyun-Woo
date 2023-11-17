@@ -75,7 +75,7 @@ public class TokyoResServlet extends HttpServlet {
     	List<TokyoRes> ress = new ArrayList<>();
         try {
             Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-            String sql = "SELECT * FROM RESTAURANT  WHERE Tokyo";
+            String sql = "SELECT * FROM RESTAURANT  WHERE CITY_NAME = 'Tokyo'";
             PreparedStatement ps = connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {

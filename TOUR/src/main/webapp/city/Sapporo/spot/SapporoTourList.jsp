@@ -62,7 +62,7 @@
         for (SapporoTour t : tours) {
     %>
     <div class="tour">
-        <p><a href="SapporoTourdetail.jsp?tour_id=<%= t.getTour_id()%>"><%= t.getTour_name() %></a></p>
+        <p><a href="SapporoTourdetail.jsp?tour_id=<%= t.getTour_id()%>"><%= t.getCity_name() %></a></p>
         <div class="all">
             <a href="SapporoTourdetail.jsp?tour_id=<%= t.getTour_id()%>"><img src="<%=t.getTour_img1() %>"></img></a>
         </div>

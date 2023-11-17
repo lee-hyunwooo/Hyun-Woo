@@ -68,7 +68,7 @@
     <img src="<%= td.getTour_img3() %>" width="800" height="600">
     </div>
 
-    <p>도시 이름: <%= td.getCity_id()%> </p>
+    <p>도시 이름: <%= td.getCity_name()%> </p>
     <p>관광지 이름: <%= td.getTour_name()%></p>
     <p>관광지 주소: <%= td.getTour_location()%></p>
     <p>관광지 전화번호: <%= td.getTour_phone()%></p>

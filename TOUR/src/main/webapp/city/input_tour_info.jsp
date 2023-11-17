@@ -8,15 +8,23 @@
 </head>
 <body>
 	
-	<form action=FukuokaTourServlet method ="post" enctype="multipart/form-data">
-		<label for ="tour_id">관광지 번호 : </label>
-		<input type ="text" name="tour_id" id="tour_id" required> <br>
+	<form action="/Fukuoka/spot/FukuokaTourServlet" method ="post" enctype="multipart/form-data">
 		
 		<label for ="user_id">유저 이름 : </label>
 		<input type ="text" name="user_id" id="user_id" required> <br>
 		
-		<label for ="city_name">도시 이름 : </label>
-		<input type ="text" name="city_name" id="city_name" required> <br>
+		<p id="city_name">
+				<label for ="city_name">도시</label> <br>
+                <input type="radio" id ="city_name"name="city_name" value="Osaka">오사카
+                <input type="radio" id ="city_name"name="city_name" value="Sapporo">삿포로
+                <input type="radio" id ="city_name"name="city_name" value="Nagasaki">나가사키
+                <input type="radio" id ="city_name"name="city_name" value="Tokyo">도쿄
+                <input type="radio" id ="city_name"name="city_name" value="Shizuoka">시즈오카
+                <input type="radio" id ="city_name"name="city_name" value="Kyoto">교토
+                <input type="radio" id ="city_name"name="city_name" value="Nagoya">나고야
+                <input type="radio" id ="city_name"name="city_name" value="Fukuoka">후쿠오카
+		
+			</p>
 		
 		<label for ="tour_name">관광지 이름 : </label>
 		<input type ="text" name="tour_name" id="tour_name" required> <br>

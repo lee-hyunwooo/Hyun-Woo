@@ -29,7 +29,7 @@ public class NagasakiAccDAO {
 	    	List<NagasakiAcc> accs = new ArrayList<>();
 	        try {
 	            Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-	            String sql = "SELECT * FROM accomodation WHERE Nagasaki";
+	            String sql = "SELECT * FROM accomodation WHERE city_name= 'Nagasaki'";
 	            PreparedStatement ps = connection.prepareStatement(sql);
 	            ResultSet rs = ps.executeQuery();
 	            while (rs.next()) {

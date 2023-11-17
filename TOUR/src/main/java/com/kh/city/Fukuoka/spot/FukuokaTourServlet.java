@@ -25,7 +25,7 @@ import org.apache.catalina.connector.Response;
 /**
  * Servlet implementation class TourServlet
  */
-@WebServlet("/FukuokaTourServlet")
+@WebServlet("/Fukuoka/spot/FukuokaTourServlet")
 @MultipartConfig 
 
 public class FukuokaTourServlet extends HttpServlet {
@@ -44,7 +44,6 @@ public class FukuokaTourServlet extends HttpServlet {
 	}
 		try {
 			Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-			
 			//sql
 			String sql = "SELECT tour_img FROM tour";
 			
@@ -53,17 +52,11 @@ public class FukuokaTourServlet extends HttpServlet {
 			ResultSet rs = ps.executeQuery();
 			
 			while(rs.next()) {
-				
 				Blob blob = rs.getBlob("tour_img");
-				
 				byte[] imageData = blob.getBytes(1, (int) blob.length());
-				
 				response.setContentType("image/jpeg");
 				response.getOutputStream().write(imageData);
 			}
-			
-		
-		
 		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -71,18 +64,19 @@ public class FukuokaTourServlet extends HttpServlet {
 		}
 		
 	}
+	
 	public List<FukuokaTour> getAllTours() {
         List<FukuokaTour> tours = new ArrayList<>();
         try {
             Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-            String sql = "SELECT * FROM tour WHERE Kyoto";
+            String sql = "SELECT * FROM tour WHERE city_name= 'Fukuoka'";
             PreparedStatement ps = connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
               
                 int tour_id = rs.getInt("tour_id");
                 String user_id = rs.getString("user_id");
-                int city_id = rs.getInt("city_id");
+                String city_name = rs.getString("city_name");
                 String tour_name = rs.getString("tour_name");
                 String tour_location = rs.getString("tour_location");
                 String tour_phone = rs.getString("tour_phone");
@@ -107,7 +101,7 @@ public class FukuokaTourServlet extends HttpServlet {
 
                  String imageBase64 = java.util.Base64.getEncoder().encodeToString(imageBytes3);
                  String tour_img3 = ("data:image/jpeg;base64, " + imageBase64);
-                 FukuokaTour tour =new FukuokaTour(tour_id,user_id,city_id,tour_name,tour_location,tour_phone,tour_time,tour_date,tour_comment, tour_img1,tour_img2, tour_img3);
+                 FukuokaTour tour =new FukuokaTour(tour_id,user_id,city_name,tour_name,tour_location,tour_phone,tour_time,tour_date,tour_comment, tour_img1,tour_img2, tour_img3);
                 tours.add(tour);
             }
         } catch (SQLException e) {
@@ -130,7 +124,7 @@ public class FukuokaTourServlet extends HttpServlet {
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()) {
                 String user_id = rs.getString("user_id");
-                int city_id = rs.getInt("city_id");
+                String city_name = rs.getString("city_name");
                 String tour_name = rs.getString("tour_name");
                 String tour_location = rs.getString("tour_location");
                 String tour_phone = rs.getString("tour_phone");
@@ -156,7 +150,7 @@ public class FukuokaTourServlet extends HttpServlet {
                  String imageBase64 = java.util.Base64.getEncoder().encodeToString(imageBytes3);
                  String tour_img3 = ("data:image/jpeg;base64, " + imageBase64);
                  
-                 tour =new FukuokaTour(tour_id,user_id,city_id,tour_name,tour_location,tour_phone,tour_time,tour_date,tour_comment, tour_img1, tour_img2, tour_img3);
+                 tour =new FukuokaTour(tour_id,user_id,city_name,tour_name,tour_location,tour_phone,tour_time,tour_date,tour_comment, tour_img1, tour_img2, tour_img3);
                  
 			}
 			
@@ -185,9 +179,8 @@ public class FukuokaTourServlet extends HttpServlet {
 		try {
 			Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
 			
-			int tour_id = Integer.parseInt(request.getParameter("tour_id"));
 		    
-		    int city_id = Integer.parseInt(request.getParameter("city_id"));
+		    String city_name = request.getParameter("city_name");
 		   
 			
 			
@@ -203,26 +196,25 @@ public class FukuokaTourServlet extends HttpServlet {
 			Part tour_img3 = request.getPart("tour_img3");
 			
 			
-			String sql = "INSERT INTO TOUR(tour_id, user_id, city_id, tour_name, tour_location, tour_phone, tour_time, tour_date, tour_comment,tour_img1, tour_img2, tour_img3)"
-					+ "VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO TOUR(user_id, city_name, tour_name, tour_location, tour_phone, tour_time, tour_date, tour_comment,tour_img1, tour_img2, tour_img3)"
+					+ "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			
-			ps.setInt(1, tour_id);
-			ps.setString(2, user_id);
-			ps.setInt(3, city_id);
-			ps.setString(4, tour_name);
-			ps.setString(5, tour_location);
-			ps.setString(6, tour_phone);
-			ps.setString(7, tour_time);
-			ps.setTimestamp(8, new Timestamp(new Date().getTime()));
-			ps.setString(9,tour_comment);
-			ps.setBinaryStream(10, tour_img1.getInputStream(),(int) tour_img1.getSize());
-			ps.setBinaryStream(11, tour_img2.getInputStream(),(int) tour_img2.getSize());
-			ps.setBinaryStream(12, tour_img3.getInputStream(),(int) tour_img3.getSize());
+			
+			ps.setString(1, user_id);
+			ps.setString(2, city_name);
+			ps.setString(3, tour_name);
+			ps.setString(4, tour_location);
+			ps.setString(5, tour_phone);
+			ps.setString(6, tour_time);
+			ps.setTimestamp(7, new Timestamp(new Date().getTime()));
+			ps.setString(8,tour_comment);
+			ps.setBinaryStream(9, tour_img1.getInputStream(),(int) tour_img1.getSize());
+			ps.setBinaryStream(10, tour_img2.getInputStream(),(int) tour_img2.getSize());
+			ps.setBinaryStream(11, tour_img3.getInputStream(),(int) tour_img3.getSize());
 			
 			ps.executeUpdate();
 			
-			response.sendRedirect("input_tour_info.jsp");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

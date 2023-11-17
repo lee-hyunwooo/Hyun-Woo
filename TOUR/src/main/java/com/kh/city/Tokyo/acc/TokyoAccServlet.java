@@ -75,7 +75,7 @@ public class TokyoAccServlet extends HttpServlet {
 	    	List<TokyoAcc> accs = new ArrayList<>();
 	        try {
 	            Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-	            String sql = "SELECT * FROM accomodation WHERE Tokyo";
+	            String sql = "SELECT * FROM accomodation WHERE CITY_NAME = 'Tokyo'";
 	            PreparedStatement ps = connection.prepareStatement(sql);
 	            ResultSet rs = ps.executeQuery();
 	            while (rs.next()) {
@@ -124,7 +124,7 @@ public class TokyoAccServlet extends HttpServlet {
 	    	
 	    	try {
 				Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-				String sql = "SELECT USER_ID, city_name, acc_NAME, acc_LOCATION, acc_PHONE, acc_TIME, acc_DATE, acc_COMMENT, acc_IMG1, acc_IMG2, acc_IMG3  FROM acc WHERE acc_id = ?";
+				String sql = "SELECT USER_ID, city_name, acc_NAME, acc_LOCATION, acc_PHONE, acc_TIME, acc_DATE, acc_COMMENT, acc_IMG1, acc_IMG2, acc_IMG3  FROM ACCOMODATION WHERE acc_id = ?";
 				PreparedStatement ps = connection.prepareStatement(sql);
 				ps.setInt(1, acc_id);
 				ResultSet rs = ps.executeQuery();

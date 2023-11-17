@@ -7,7 +7,7 @@
 <title>게시물 작성</title>
 </head>
 <body>
-	<form action="boardServlet" method="post">
+	<form action="/board/boardServlet" method="post">
 		<label for ="title">유저</label>
 				<input type="text"id ="user_id" name="user_id" required>
 				

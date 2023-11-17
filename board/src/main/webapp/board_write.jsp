@@ -14,18 +14,7 @@
 				<label for ="title">제목</label>
 				<input type="text"id ="title" name="title" required>
 				
-			<p id="city_name">
-				<label for ="city_name">도시</label> <br>
-                <input type="radio" id ="city_name"name="city_name" value="오사카">오사카
-                <input type="radio" id ="city_name"name="city_name" value="삿포로">삿포로
-                <input type="radio" id ="city_name"name="city_name" value="나가사키">나가사키
-                <input type="radio" id ="city_name"name="city_name" value="도쿄">도쿄
-                <input type="radio" id ="city_name"name="city_name" value="시즈오카">시즈오카
-                <input type="radio" id ="city_name"name="city_name" value="교토">교토
-                <input type="radio" id ="city_name"name="city_name" value="나고야">나고야
-                <input type="radio" id ="city_name"name="city_name" value="후쿠오카">후쿠오카
-		
-			</p>
+			
 			<p id="category">
 				<label for ="title">카테고리</label>
 				<input type="radio"id ="category" name="category" value="숙소">숙소

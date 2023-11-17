@@ -29,7 +29,7 @@ public class KyotoResDAO {
 	    	List<KyotoRes> ress = new ArrayList<>();
 	        try {
 	            Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-	            String sql = "SELECT * FROM RESTAURANT  WHERE Kyoto";
+	            String sql = "SELECT * FROM RESTAURANT  WHERE city_name = 'Kyoto'";
 	            PreparedStatement ps = connection.prepareStatement(sql);
 	            ResultSet rs = ps.executeQuery();
 	            while (rs.next()) {
@@ -77,7 +77,7 @@ public class KyotoResDAO {
 	    	
 	    	try {
 				Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-				String sql = "SELECT USER_ID, CITY_NAME, res_NAME, res_LOCATION, res_PHONE, res_TIME, res_DATE, res_COMMENT, res_IMG1, res_IMG2, res_IMG3  FROM res WHERE res_id = ?";
+				String sql = "SELECT USER_ID, CITY_NAME, res_NAME, res_LOCATION, res_PHONE, res_TIME, res_DATE, res_COMMENT, res_IMG1, res_IMG2, res_IMG3  FROM RESTAURANT WHERE res_id = ?";
 				PreparedStatement ps = connection.prepareStatement(sql);
 				ps.setInt(1, res_id);
 				ResultSet rs = ps.executeQuery();

@@ -29,14 +29,14 @@ public class OsakaTourDAO {
 	    	List<OsakaTour> tours = new ArrayList<>();
 	        try {
 	            Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-	            String sql = "SELECT * FROM tour WHERE Osaka";
+	            String sql = "SELECT * FROM tour WHERE city_name= 'Osaka'";
 	            PreparedStatement ps = connection.prepareStatement(sql);
 	            ResultSet rs = ps.executeQuery();
 	            while (rs.next()) {
 	              
 	                int tour_id = rs.getInt("tour_id");
 	                String user_id = rs.getString("user_id");
-	                int city_id = rs.getInt("city_id");
+	                String city_name = rs.getString("city_name");
 	                String tour_name = rs.getString("tour_name");
 	                String tour_location = rs.getString("tour_location");
 	                String tour_phone = rs.getString("tour_phone");
@@ -61,7 +61,7 @@ public class OsakaTourDAO {
 
 	                 String imageBase64 = java.util.Base64.getEncoder().encodeToString(imageBytes3);
 	                 String tour_img3 = ("data:image/jpeg;base64, " + imageBase64);
-	                 OsakaTour tour =new OsakaTour(tour_id,user_id,city_id,tour_name,tour_location,tour_phone,tour_time,tour_date,tour_comment, tour_img1,tour_img2, tour_img3);
+	                 OsakaTour tour =new OsakaTour(tour_id,user_id,city_name,tour_name,tour_location,tour_phone,tour_time,tour_date,tour_comment, tour_img1,tour_img2, tour_img3);
 	                tours.add(tour);
 	            }
 	        } catch (SQLException e) {
@@ -77,13 +77,13 @@ public class OsakaTourDAO {
 	    	
 	    	try {
 				Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-				String sql = "SELECT USER_ID, CITY_ID, TOUR_NAME, TOUR_LOCATION, TOUR_PHONE, TOUR_TIME, TOUR_DATE, TOUR_COMMENT, TOUR_IMG1, TOUR_IMG2, TOUR_IMG3  FROM tour WHERE tour_id = ?";
+				String sql = "SELECT USER_ID, city_name, TOUR_NAME, TOUR_LOCATION, TOUR_PHONE, TOUR_TIME, TOUR_DATE, TOUR_COMMENT, TOUR_IMG1, TOUR_IMG2, TOUR_IMG3  FROM tour WHERE tour_id = ?";
 				PreparedStatement ps = connection.prepareStatement(sql);
 				ps.setInt(1, tour_id);
 				ResultSet rs = ps.executeQuery();
 				if(rs.next()) {
 	                String user_id = rs.getString("user_id");
-	                int city_id = rs.getInt("city_id");
+	                String city_name = rs.getString("city_name");
 	                String tour_name = rs.getString("tour_name");
 	                String tour_location = rs.getString("tour_location");
 	                String tour_phone = rs.getString("tour_phone");
@@ -109,7 +109,7 @@ public class OsakaTourDAO {
 	                 String imageBase64 = java.util.Base64.getEncoder().encodeToString(imageBytes3);
 	                 String tour_img3 = ("data:image/jpeg;base64, " + imageBase64);
 	                 
-	                 tour =new OsakaTour(tour_id,user_id,city_id,tour_name,tour_location,tour_phone,tour_time,tour_date,tour_comment, tour_img1, tour_img2, tour_img3);
+	                 tour =new OsakaTour(tour_id,user_id,city_name,tour_name,tour_location,tour_phone,tour_time,tour_date,tour_comment, tour_img1, tour_img2, tour_img3);
 	                 
 				}
 				
@@ -129,7 +129,7 @@ public class OsakaTourDAO {
 	    public void insertTour(OsakaTour tour) {
 	        try {
 	            Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-	            String sql = "INSERT INTO TOUR(TOUR_ID, USER_ID, CITY_ID, TOUR_NAME, TOUR_LOCATION, TOUR_PHONE, TOUR_TIME, TOUR_DATE, TOUR_COMMENT, TOUR_IMG)"
+	            String sql = "INSERT INTO TOUR(TOUR_ID, USER_ID, city_name, TOUR_NAME, TOUR_LOCATION, TOUR_PHONE, TOUR_TIME, TOUR_DATE, TOUR_COMMENT, TOUR_IMG)"
 	                    + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	            PreparedStatement ps = conn.prepareStatement(sql);
 

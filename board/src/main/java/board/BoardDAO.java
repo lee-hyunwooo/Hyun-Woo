@@ -94,7 +94,7 @@ public class BoardDAO {
 			 String sql = "INSERT INTO product_comments (review_number, POST_NUMBER, user_id, review_writer, review_content,review_date,review_like) VALUES (?, ?, ?, ?, ?, ?, ? )";
 			 PreparedStatement ps = connection.prepareStatement(sql);
 			 ps.setInt(1, comment.getReview_number());
-			 ps.setInt(2, comment.getPOST_NUMBER());
+			 ps.setInt(2, comment.getPost_Number());
 			 ps.setString(3,  comment.getUser_id());
 			 ps.setString(4, comment.getReview_writer());
 			 ps.setString(5, comment.getReview_content());

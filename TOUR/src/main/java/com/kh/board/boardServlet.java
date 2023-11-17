@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class boardServlet
  */
-@WebServlet("/boardServlet")
+@WebServlet("/board/boardServlet")
 public class boardServlet extends HttpServlet {
 	private static final String jdbcURL = "jdbc:oracle:thin:@localhost:1521:xe";
 	private static final String jdbcUsername = "tour";

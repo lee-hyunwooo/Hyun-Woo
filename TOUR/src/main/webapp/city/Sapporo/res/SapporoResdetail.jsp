@@ -58,7 +58,9 @@
         String res_idValue = request.getParameter("res_id");
         int res_id = Integer.parseInt(res_idValue);
         SapporoRes rd = new SapporoResDAO().getRes(res_id);
+        System.out.print(res_id);
     %>
+    
     <h1><%= rd.getRes_name() %>관광지상세정보</h1>
 
     <!-- Create a container for the images -->

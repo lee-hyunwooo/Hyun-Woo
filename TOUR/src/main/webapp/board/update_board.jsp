@@ -22,7 +22,7 @@
 	%>
 
 
-	<form action="updateServlet" method="post">
+	<form action="/board/updateServlet" method="post">
 	
 	
 				<label style="display: none;" for ="post_number"><%= b.getPost_number() %></label>

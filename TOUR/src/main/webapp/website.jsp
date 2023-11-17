@@ -5,14 +5,44 @@
 <head>
 <meta charset="UTF-8">
 <title>Document</title>
-<link
+<link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-	rel="stylesheet"
 	integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="website.css">
 
 <style>
+
+.top10 {
+	margin-left: 15%;
+	margin-right: 15%;
+	width: 75%;
+	height: 500px;
+	margin-bottom: 25px;
+
+}
+
+img {
+	
+	margin-top: 30px;
+	border-radius: 20px;
+	filter: drop-shadow(10px 8px 8px #c3c3c3);
+	
+
+}
+
+
+
+
+.mainImage {
+    width: 1000px;
+    height: 700px;
+    margin-top: 500px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+}
+
 .main_logo {
 	color: #7AB730;
 	text-decoration-line: none;
@@ -27,14 +57,14 @@
 #dropdownBtn {
 	display: inline-block;
 	position: relative;
-	margin-left: 60%;
+	margin-left: 65%;
 }
 
 #dropdownContent {
 	display: none;
 	position: absolute;
 	background-color: #f9f9f9;
-	min-width: 160px;
+	min-width: 150px;
 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 	z-index: 1;
 }
@@ -50,27 +80,6 @@
 	background-color: #f1f1f1;
 }
 
-.mid_row1 {
-	display: inline-block;
-	text-decoration-line: none;
-	color: #7AB730;
-	font-size: 20px;
-}
-
-.mid_row2 {
-	border: 1px solid #ccc;
-	height: 70px;
-	padding: 15px;
-	text-align: center;
-}
-
-.search {
-	justify-content: space-between;
-	align-items: center;
-	padding: 8px;
-	margin-top: 5%;
-	margin-bottom: 5%;
-}
 
 .info {
 	margin-left: 10%;
@@ -81,7 +90,64 @@
 	width: 500px;
 	height: 300px;
 }
+
+#topMenu ul {
+	
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 100px;
+
+    
+    
+}
+
+#topMenu li {
+    margin-right: 0px;
+   
+    
+}
+
+.submenu,
+.submenu2,
+.submenu3 {
+     display: flex;
+    flex-direction: row; 
+    position: absolute;
+    top: 95%;
+    left: 0;
+    z-index: 1;
+    display: none;
+}
+
+.submenu li,
+.submenu2 li,
+.submenu3 li {
+    margin: 0.5px;
+}
+
+#topMenu li:hover .submenu,
+#topMenu li:hover .submenu2,
+#topMenu li:hover .submenu3 {
+    display: flex;
+}
+
+
+.text {
+	text-align: center;
+	margin-top: 300px;
+	color: #EE9CA7;
+	font-size: 60px;
+	
+
+}
+
+
+
+
 </style>
+
+
 <body>
 	<form action="LoginServlet" method="post">
         <input type="hidden" name="formAction" value="userInfoForm">
@@ -110,9 +176,7 @@
 				<div id="citiesDropdown">
 					<a href="#">도시 선택</a>
 					<div id="citiesContent" style="display: none;">
-						<a href="#">교토</a> <a href="#">나가사키</a> <a href="#">나고야</a> <a
-							href="#">도쿄</a> <a href="#">사포로</a> <a href="#">시즈오카</a> <a
-							href="#">오사카</a> <a href="#">후쿠오카</a>
+						
 					</div>
 				</div>
 				<%
@@ -130,21 +194,25 @@
 				%>
 			
 		</button>
+		
 
 		<div id="imageSlider">
-			<a href=""><img src="./관광지/4. 도쿄 타워/4. 도쿄 타워/3.jpg" class="top10"
+			<a href=""><img src="../Image/오도리공원.jpg" class="top10"
 				alt=""></a> <a href=""><img
-				src="../오사카/관광지/3. 오사카 성/3. 오사카 성/1.jpg" class="top10" alt=""></a>
-			<a href=""><img src="./관광지/9. 도쿄역/9. 도쿄역/1.jpg" class="top10"
+				src="./main/Image/시로이코이비토 파크.jpg" class="top10" alt=""></a>
+			<a href=""><img src="/main/Image/시로이코이비토 파크.jpg" class="top10"
 				alt=""></a> <a href=""><img
-				src="../오사카/관광지/9. 도톤보리/9. 도톤보리/1.jpg" class="top10" alt=""></a> <a
-				href=""><img src="../오사카/관광지/1. 유니버설/1. 유니버설/3.jpg"
+				src="./Image/시로이코이비토 파크.jpg" class="top10" alt=""></a> <a
+				href=""><img src="../Image/홋카이도 신궁.jpg"
 				class="top10" alt=""></a>
+				
 		</div>
 		<!-- Navbar End -->
 
 
+
 		<!-- Header Start -->
+
 
 
 		<!-- Header End -->
@@ -156,245 +224,98 @@
 			<ul>
 				<li class="Menu"><a class="menuLink" href="">삿포로</a>
 					<ul class="submenu">
-						<li><a href="#" class="sub">관광지</a></li>
-						<li><a href="#" class="sub">맛집</a></li>
-						<li><a href="#" class="sub">숙박</a></li>
+						<li><a href="./city/Sapporo/spot/SapporoTourList.jsp" class="sub">관광지</a></li>
+						<li><a href="./city/Sapporo/res/SapporoResList.jsp" class="sub">맛집</a></li>
+						<li><a href="./city/Sapporo/acc/SapporoAccList.jsp" class="sub">숙박</a></li>
 					</ul></li>
 
 				<li class="Menu"><a class="menuLink" href="">도쿄</a>
 					<ul class="submenu">
-						<li><a href="./tokyo_tour.html" class="sub">관광지</a></li>
-						<li><a href="./tokyo_food.html" class="sub">맛집</a></li>
-						<li><a href="./tokyo_accomodation.html" class="sub">숙박</a></li>
+						<li><a href="./city/Tokyo/spot/TokyoTourList.jsp" class="sub">관광지</a></li>
+						<li><a href="./city/Tokyo/res/TokyoResList.jsp" class="sub">맛집</a></li>
+						<li><a href="./city/Tokyo/acc/TokyoAccList.jsp" class="sub">숙박</a></li>
 					</ul></li>
 
 				<li class="Menu"><a class="menuLink" href="">시즈오카</a>
 					<ul class="submenu">
-						<li><a href="" class="sub">관광지</a></li>
-						<li><a href="" class="sub">맛집</a></li>
-						<li><a href="" class="sub">숙박</a></li>
+						<li><a href="./city/Shizuoka/spot/ShizuokaTourList.jsp" class="sub">관광지</a></li>
+						<li><a href="./city/Shizuoka/res/ShizuokaResList.jsp" class="sub">맛집</a></li>
+						<li><a href="./city/Shizuoka/acc/ShizuokaAccList.jsp" class="sub">숙박</a></li>
 					</ul></li>
 
 				<li class="Menu"><a class="menuLink">나고야</a>
 					<ul class="submenu2">
-						<li><a href="" class="sub">관광지</a></li>
-						<li><a href="" class="sub">맛집</a></li>
-						<li><a href="" class="sub">숙박</a></li>
+						<li><a href="./city/Nagoya/spot/NagoyaTourList.jsp" class="sub">관광지</a></li>
+						<li><a href="./city/Nagoya/res/NagoyaResList.jsp" class="sub">맛집</a></li>
+						<li><a href="./city/Nagoya/acc/NagoyaAccList.jsp" class="sub">숙박</a></li>
 					</ul></li>
 
 				<li class="Menu"><a class="menuLink">교토</a>
 					<ul class="submenu2">
-						<li><a href="" class="sub">관광지</a></li>
-						<li><a href="" class="sub">맛집</a></li>
-						<li><a href="" class="sub">숙박</a></li>
+						<li><a href="./city/Kyoto/spot/KyotoTourList.jsp" class="sub">관광지</a></li>
+						<li><a href="./city/Kyoto/res/KyotoResList.jsp" class="sub">맛집</a></li>
+						<li><a href="./city/Kyoto/acc/KyotoAccList.jsp" class="sub">숙박</a></li>
 					</ul></li>
 
 				<li class="Menu"><a class="menuLink">오사카</a>
 					<ul class="submenu2">
-						<li><a href="../오사카/osaka_tour.html" class="sub">관광지</a></li>
-						<li><a href="../오사카/osaka_food.html" class="sub">맛집</a></li>
-						<li><a href="../오사카/osaka_accomodation.html" class="sub">숙박</a></li>
+						<li><a href="./city/Osaka/spot/OsakaTourList.jsp" class="sub">관광지</a></li>
+						<li><a href="./city/Osaka/res/OsakaResList.jsp" class="sub">맛집</a></li>
+						<li><a href="./city/Osaka/acc/OsakaAccList.jsp" class="sub">숙박</a></li>
 					</ul></li>
 
 				<li class="Menu"><a class="menuLink">후쿠오카</a>
 					<ul class="submenu3">
-						<li><a href="" class="sub">관광지</a></li>
-						<li><a href="" class="sub">맛집</a></li>
-						<li><a href="" class="sub">숙박</a></li>
+						<li><a href="./city/Fukuoka/spot/FukuokaTourList.jsp" class="sub">관광지</a></li>
+						<li><a href="./city/Fukuoka/res/FukuokaResList.jsp" class="sub">맛집</a></li>
+						<li><a href="./city/Fukuoka/acc/FukuokaAccList.jsp" class="sub">숙박</a></li>
 					</ul></li>
 
 				<li class="Menu"><a class="menuLink">나가사키</a>
 					<ul class="submenu3">
-						<li><a href="" class="sub">관광지</a></li>
-						<li><a href="" class="sub">맛집</a></li>
-						<li><a href="" class="sub">숙박</a></li>
+						<li><a href="./city/Nagasaki/spot/NagasakiTourList.jsp" class="sub">관광지</a></li>
+						<li><a href="./city/Nagasaki/res/NagasakiResList.jsp" class="sub">맛집</a></li>
+						<li><a href="./city/Nagasaki/acc/NagasakiAccList.jsp" class="sub">숙박</a></li>
 					</ul></li>
+					
+					<li class="Menu"><a href="./board/boardList.jsp" class="menuLink">자유게시판</a>
+					</li>
+
 
 			</ul>
 		</nav>
 
-		<!-- Search Form -->
-		<div class="search" style="text-align: center;">
-			<input type="text" class="" placeholder="검색"
-				style="display: inline-block;">
-			<button type="button" id="searchButton">
-				<span>검색</span>
-			</button>
-		</div>
-		<!-- Booking End -->
+
+<div class="text">
+			<div>
+				<h2><b>미리보기</h2>
+			
+			</div>
+
+
+
+
+</div>
 
 
 		<!-- Blog Start -->
-		<div class="container px-4 text-center">
-			<div class="row gx-5">
-				<div class="col">
-					<div class="p-3">
-						<div class="">
-							<a href=""><img class="category_img"
-								src="../도쿄/숙박/1. 시즈테츠 호텔/외관.webp" alt=""></a>
-							<div class=""></div>
-						</div>
-						<div class="">
-							<div class="">
-								<h6>도쿄 |</h6>
-							</div>
-							<a class="h5 m-0 text-decoration-none" href="">시즈테츠 호텔</a>
-						</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="p-3">
-						<div class="">
-							<a href=""><img class="category_img"
-								src="../도쿄/숙박/2. 미츠이 가든/외관.webp" alt=""></a>
-							<div class=""></div>
-						</div>
-						<div class="">
-							<div class="">
-								<h6>도쿄 |</h6>
-							</div>
-							<a class="h5 m-0 text-decoration-none" href="">미츠이 가든</a>
-						</div>
-					</div>
-				</div>
-
-			</div>
-			<div class="row gx-5">
-				<div class="col">
-					<div class="p-3">
-						<div class="">
-							<a href=""><img class="category_img"
-								src="../도쿄/숙박/3. 도큐 스테이/정면.webp" alt=""></a>
-							<div class=""></div>
-						</div>
-						<div class="">
-							<div class="">
-								<h6>도쿄 |</h6>
-							</div>
-							<a class="h5 m-0 text-decoration-none" href="">도큐 스테이</a>
-						</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="p-3">
-						<div class="">
-							<a href=""><img class="category_img"
-								src="../도쿄/숙박/4. 마이스테이/외관.webp" alt=""></a>
-							<div class=""></div>
-						</div>
-						<div class="">
-							<div class="">
-								<h6>도쿄 |</h6>
-							</div>
-							<a class="h5 m-0 text-decoration-none" href="">마이스테이</a>
-						</div>
-					</div>
-				</div>
-
-			</div>
-			<div class="row gx-5">
-				<div class="col">
-					<div class="p-3">
-						<div class="">
-							<a href=""><img class="category_img"
-								src="../도쿄/숙박/5. 료칸 가모가와/정면.avif" alt=""></a>
-							<div class=""></div>
-						</div>
-						<div class="">
-							<div class="">
-								<h6>도쿄 |</h6>
-							</div>
-							<a class="h5 m-0 text-decoration-none" href="">료칸 가모가와</a>
-						</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="p-3">
-						<div class="">
-							<a href=""><img class="category_img"
-								src="../도쿄/숙박/6. 프로스타일 료칸/외관.webp" alt=""></a>
-							<div class=""></div>
-						</div>
-						<div class="">
-							<div class="">
-								<h6>도쿄 |</h6>
-							</div>
-							<a class="h5 m-0 text-decoration-none" href="">프로스타일 료칸</a>
-						</div>
-					</div>
-				</div>
-
-			</div>
-			<div class="row gx-5">
-				<div class="col">
-					<div class="p-3">
-						<div class="">
-							<a href=""><img class="category_img"
-								src="../도쿄/숙박/7. 차시츠 료칸 아사쿠사/외관.webp" alt=""></a>
-							<div class=""></div>
-						</div>
-						<div class="">
-							<div class="">
-								<h6>도쿄 |</h6>
-							</div>
-							<a class="h5 m-0 text-decoration-none" href="">차치츠 료칸</a>
-						</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="p-3">
-						<div class="">
-							<a href=""><img class="category_img"
-								src="../도쿄/숙박/8. omo5/외관.webp" alt=""></a>
-							<div class=""></div>
-						</div>
-						<div class="">
-							<div class="">
-								<h6>도쿄 |</h6>
-							</div>
-							<a class="h5 m-0 text-decoration-none" href="">omo5</a>
-						</div>
-					</div>
-				</div>
-
-			</div>
-			<div class="row gx-5">
-				<div class="col">
-					<div class="p-3">
-						<div class="">
-							<a href=""><img class="category_img"
-								src="../도쿄/숙박/9. 베스트/외관.webp" alt=""></a>
-							<div class=""></div>
-						</div>
-						<div class="">
-							<div class="">
-								<h6>도쿄 |</h6>
-							</div>
-							<a class="h5 m-0 text-decoration-none" href="">베스트</a>
-						</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="p-3">
-						<div class="">
-							<a href=""><img class="category_img"
-								src="../도쿄/숙박/10. 더 게이트/외관.jpg" alt=""></a>
-							<div class=""></div>
-						</div>
-						<div class="">
-							<div class="">
-								<h6>도쿄 |</h6>
-							</div>
-							<a class="h5 m-0 text-decoration-none" href="">더 게이트</a>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-		</div>
-
-
+		
+		
+	<div class="mainImage">	
+		<a href=""><img src="./main/Image/나카미세도리.jpg" class="top10"
+				alt=""></a> <a href=""><img
+				src="../main/Image/나카미세도리.jpg" class="top10" alt=""></a>
+			<a href=""><img src="../Image/소메타로.jpg" class="top10"
+				alt=""></a> <a href=""><img
+				src="./Image/나카미세도리.jpg" class="top10" alt=""></a> <a
+				href=""><img src="../Image/나카미세도리.jpg"
+				class="top10" alt=""></a>
+				<a href=""><img src="나카미세도리.jpg" class="top10" alt=""></a>
+		
+	</div>
+	
+	
+	
 		<script>
 			var dropdownBtn = document.getElementById("dropdownBtn");
 			var dropdownContent = document.getElementById("dropdownContent");
@@ -427,10 +348,13 @@
 					slideIndex = 1;
 				}
 				images[slideIndex - 1].style.display = 'block';
-				setTimeout(showSlides, 3000); // Change image every 2 seconds (2000 milliseconds)
+				setTimeout(showSlides, 3000); 
 			}
 
-			showSlides(); // Start the image slider
+			showSlides(); 
+			
+		
+		
 		</script>
 	</form>
 

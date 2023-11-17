@@ -14,7 +14,7 @@ import javax.servlet.http.Part;
 
 public class FukuokaTourDAO {
 	private static final String jdbcURL = "jdbc:oracle:thin:@localhost:1521:xe";
-	private static final String jdbcUsername = "TOUR";
+	private static final String jdbcUsername = "tour";
 	private static final String jdbcPassword = "1234";
 
 	    public FukuokaTourDAO() {
@@ -29,14 +29,14 @@ public class FukuokaTourDAO {
 	    	List<FukuokaTour> tours = new ArrayList<>();
 	        try {
 	            Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-	            String sql = "SELECT * FROM tour WHERE Fukuoka";
+	            String sql = "SELECT * FROM tour WHERE city_name = 'Fukuoka'";
 	            PreparedStatement ps = connection.prepareStatement(sql);
 	            ResultSet rs = ps.executeQuery();
 	            while (rs.next()) {
 	              
 	                int tour_id = rs.getInt("tour_id");
 	                String user_id = rs.getString("user_id");
-	                int city_id = rs.getInt("city_id");
+	                String city_name = rs.getString("city_name");
 	                String tour_name = rs.getString("tour_name");
 	                String tour_location = rs.getString("tour_location");
 	                String tour_phone = rs.getString("tour_phone");
@@ -61,7 +61,7 @@ public class FukuokaTourDAO {
 
 	                 String imageBase64 = java.util.Base64.getEncoder().encodeToString(imageBytes3);
 	                 String tour_img3 = ("data:image/jpeg;base64, " + imageBase64);
-	                 FukuokaTour tour =new FukuokaTour(tour_id,user_id,city_id,tour_name,tour_location,tour_phone,tour_time,tour_date,tour_comment, tour_img1,tour_img2, tour_img3);
+	                 FukuokaTour tour =new FukuokaTour(tour_id,user_id,city_name,tour_name,tour_location,tour_phone,tour_time,tour_date,tour_comment, tour_img1,tour_img2, tour_img3);
 	                tours.add(tour);
 	            }
 	        } catch (SQLException e) {
@@ -83,7 +83,7 @@ public class FukuokaTourDAO {
 				ResultSet rs = ps.executeQuery();
 				if(rs.next()) {
 	                String user_id = rs.getString("user_id");
-	                int city_id = rs.getInt("city_id");
+	                String city_name = rs.getString("city_name");
 	                String tour_name = rs.getString("tour_name");
 	                String tour_location = rs.getString("tour_location");
 	                String tour_phone = rs.getString("tour_phone");
@@ -109,7 +109,7 @@ public class FukuokaTourDAO {
 	                 String imageBase64 = java.util.Base64.getEncoder().encodeToString(imageBytes3);
 	                 String tour_img3 = ("data:image/jpeg;base64, " + imageBase64);
 	                 
-	                 tour =new FukuokaTour(tour_id,user_id,city_id,tour_name,tour_location,tour_phone,tour_time,tour_date,tour_comment, tour_img1, tour_img2, tour_img3);
+	                 tour =new FukuokaTour(tour_id,user_id,city_name,tour_name,tour_location,tour_phone,tour_time,tour_date,tour_comment, tour_img1, tour_img2, tour_img3);
 	                 
 				}
 				

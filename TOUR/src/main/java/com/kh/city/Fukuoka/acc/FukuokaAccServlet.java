@@ -25,7 +25,7 @@ import org.apache.catalina.connector.Response;
 /**
  * Servlet implementation class TourServlet
  */
-@WebServlet("/FukuokaAccServlet")
+@WebServlet("/Fukuoka/acc/FukuokaAccServlet")
 @MultipartConfig 
 
 public class FukuokaAccServlet extends HttpServlet {
@@ -75,7 +75,7 @@ public class FukuokaAccServlet extends HttpServlet {
 	    	List<FukuokaAcc> accs = new ArrayList<>();
 	        try {
 	            Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-	            String sql = "SELECT * FROM accomodation WHERE Fukuoka";
+	            String sql = "SELECT * FROM accomodation WHERE city_name = 'Fukuoka'";
 	            PreparedStatement ps = connection.prepareStatement(sql);
 	            ResultSet rs = ps.executeQuery();
 	            while (rs.next()) {
@@ -124,7 +124,7 @@ public class FukuokaAccServlet extends HttpServlet {
 	    	
 	    	try {
 				Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-				String sql = "SELECT USER_ID, city_name, acc_NAME, acc_LOCATION, acc_PHONE, acc_TIME, acc_DATE, acc_COMMENT, acc_IMG1, acc_IMG2, acc_IMG3  FROM acc WHERE acc_id = ?";
+				String sql = "SELECT USER_ID, city_name, acc_NAME, acc_LOCATION, acc_PHONE, acc_TIME, acc_DATE, acc_COMMENT, acc_IMG1, acc_IMG2, acc_IMG3  FROM ACCOMODATION WHERE acc_id = ?";
 				PreparedStatement ps = connection.prepareStatement(sql);
 				ps.setInt(1, acc_id);
 				ResultSet rs = ps.executeQuery();
@@ -185,7 +185,7 @@ public class FukuokaAccServlet extends HttpServlet {
 		try {
 			Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
 			
-			int acc_id = Integer.parseInt(request.getParameter("acc_id"));
+			
 		    
 		    String city_name = request.getParameter("city_name");
 		   
@@ -203,26 +203,24 @@ public class FukuokaAccServlet extends HttpServlet {
 			Part acc_img3 = request.getPart("acc_img3");
 			
 			
-			String sql = "INSERT INTO accomodation(acc_id, user_id, city_name, acc_name, acc_location, acc_phone, acc_time, acc_date, acc_comment,acc_img1, acc_img2, acc_img3)"
-					+ "VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO accomodation(user_id, city_name, acc_name, acc_location, acc_phone, acc_time, acc_date, acc_comment,acc_img1, acc_img2, acc_img3)"
+					+ "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			
-			ps.setInt(1, acc_id);
-			ps.setString(2, user_id);
-			ps.setString(3, city_name);
-			ps.setString(4, acc_name);
-			ps.setString(5, acc_location);
-			ps.setString(6, acc_phone);
-			ps.setString(7, acc_time);
-			ps.setTimestamp(8, new Timestamp(new Date().getTime()));
-			ps.setString(9,acc_comment);
-			ps.setBinaryStream(10, acc_img1.getInputStream(),(int) acc_img1.getSize());
-			ps.setBinaryStream(11, acc_img2.getInputStream(),(int) acc_img2.getSize());
-			ps.setBinaryStream(12, acc_img3.getInputStream(),(int) acc_img3.getSize());
+			ps.setString(1, user_id);
+			ps.setString(2, city_name);
+			ps.setString(3, acc_name);
+			ps.setString(4, acc_location);
+			ps.setString(5, acc_phone);
+			ps.setString(6, acc_time);
+			ps.setTimestamp(7, new Timestamp(new Date().getTime()));
+			ps.setString(8,acc_comment);
+			ps.setBinaryStream(9, acc_img1.getInputStream(),(int) acc_img1.getSize());
+			ps.setBinaryStream(10, acc_img2.getInputStream(),(int) acc_img2.getSize());
+			ps.setBinaryStream(11, acc_img3.getInputStream(),(int) acc_img3.getSize());
 			
 			ps.executeUpdate();
 			
-			response.sendRedirect("input_acc_info.jsp");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

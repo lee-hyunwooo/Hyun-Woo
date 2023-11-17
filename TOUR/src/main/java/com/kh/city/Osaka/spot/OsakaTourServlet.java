@@ -75,14 +75,14 @@ public class OsakaTourServlet extends HttpServlet {
         List<OsakaTour> tours = new ArrayList<>();
         try {
             Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-            String sql = "SELECT * FROM tour WHERE Kyoto";
+            String sql = "SELECT * FROM tour WHERE city_name= 'Osaka'";
             PreparedStatement ps = connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
               
                 int tour_id = rs.getInt("tour_id");
                 String user_id = rs.getString("user_id");
-                int city_id = rs.getInt("city_id");
+                String city_name = rs.getString("city_name");
                 String tour_name = rs.getString("tour_name");
                 String tour_location = rs.getString("tour_location");
                 String tour_phone = rs.getString("tour_phone");
@@ -107,7 +107,7 @@ public class OsakaTourServlet extends HttpServlet {
 
                  String imageBase64 = java.util.Base64.getEncoder().encodeToString(imageBytes3);
                  String tour_img3 = ("data:image/jpeg;base64, " + imageBase64);
-                 OsakaTour tour =new OsakaTour(tour_id,user_id,city_id,tour_name,tour_location,tour_phone,tour_time,tour_date,tour_comment, tour_img1,tour_img2, tour_img3);
+                 OsakaTour tour =new OsakaTour(tour_id,user_id,city_name,tour_name,tour_location,tour_phone,tour_time,tour_date,tour_comment, tour_img1,tour_img2, tour_img3);
                 tours.add(tour);
             }
         } catch (SQLException e) {
@@ -130,7 +130,7 @@ public class OsakaTourServlet extends HttpServlet {
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()) {
                 String user_id = rs.getString("user_id");
-                int city_id = rs.getInt("city_id");
+                String city_name = rs.getString("city_name");
                 String tour_name = rs.getString("tour_name");
                 String tour_location = rs.getString("tour_location");
                 String tour_phone = rs.getString("tour_phone");
@@ -156,7 +156,7 @@ public class OsakaTourServlet extends HttpServlet {
                  String imageBase64 = java.util.Base64.getEncoder().encodeToString(imageBytes3);
                  String tour_img3 = ("data:image/jpeg;base64, " + imageBase64);
                  
-                 tour =new OsakaTour(tour_id,user_id,city_id,tour_name,tour_location,tour_phone,tour_time,tour_date,tour_comment, tour_img1, tour_img2, tour_img3);
+                 tour =new OsakaTour(tour_id,user_id,city_name,tour_name,tour_location,tour_phone,tour_time,tour_date,tour_comment, tour_img1, tour_img2, tour_img3);
                  
 			}
 			

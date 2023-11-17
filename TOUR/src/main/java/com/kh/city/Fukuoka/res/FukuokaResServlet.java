@@ -25,7 +25,7 @@ import org.apache.catalina.connector.Response;
 /**
  * Servlet implementation class TourServlet
  */
-@WebServlet("/FukuokaResServlet")
+@WebServlet("/Fukuoka/res/FukuokaAccServlet")
 @MultipartConfig 
 
 public class FukuokaResServlet extends HttpServlet {
@@ -75,7 +75,7 @@ public class FukuokaResServlet extends HttpServlet {
     	List<FukuokaRes> ress = new ArrayList<>();
         try {
             Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-            String sql = "SELECT * FROM RESTAURANT  WHERE Fukuoka";
+            String sql = "SELECT * FROM RESTAURANT  WHERE city_name = 'Fukuoka'";
             PreparedStatement ps = connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -124,7 +124,7 @@ public class FukuokaResServlet extends HttpServlet {
     	
     	try {
 			Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-			String sql = "SELECT USER_ID, CITY_NAME, res_NAME, res_LOCATION, res_PHONE, res_TIME, res_DATE, res_COMMENT, res_IMG1, res_IMG2, res_IMG3  FROM res WHERE res_id = ?";
+			String sql = "SELECT USER_ID, CITY_NAME, res_NAME, res_LOCATION, res_PHONE, res_TIME, res_DATE, res_COMMENT, res_IMG1, res_IMG2, res_IMG3  FROM RESTAURANT WHERE res_id = ?";
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setInt(1, res_id);
 			ResultSet rs = ps.executeQuery();
@@ -185,7 +185,6 @@ public class FukuokaResServlet extends HttpServlet {
 		try {
 			Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
 			
-			int res_id = Integer.parseInt(request.getParameter("res_id"));
 		    
 		    String city_name = request.getParameter("city_name");
 		   
@@ -203,26 +202,25 @@ public class FukuokaResServlet extends HttpServlet {
 			Part res_img3 = request.getPart("res_img3");
 			
 			
-			String sql = "INSERT INTO RESTAURANT(res_id, user_id, city_name, res_name, res_location, res_phone, res_time, res_date, res_comment,res_img1, res_img2, res_img3)"
-					+ "VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO RESTAURANT(user_id, city_name, res_name, res_location, res_phone, res_time, res_date, res_comment,res_img1, res_img2, res_img3)"
+					+ "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			
-			ps.setInt(1, res_id);
-			ps.setString(2, user_id);
-			ps.setString(3, city_name);
-			ps.setString(4, res_name);
-			ps.setString(5, res_location);
-			ps.setString(6, res_phone);
-			ps.setString(7, res_time);
-			ps.setTimestamp(8, new Timestamp(new Date().getTime()));
-			ps.setString(9,res_comment);
-			ps.setBinaryStream(10, res_img1.getInputStream(),(int) res_img1.getSize());
-			ps.setBinaryStream(11, res_img2.getInputStream(),(int) res_img2.getSize());
-			ps.setBinaryStream(12, res_img3.getInputStream(),(int) res_img3.getSize());
+			ps.setString(1, user_id);
+			ps.setString(2, city_name);
+			ps.setString(3, res_name);
+			ps.setString(4, res_location);
+			ps.setString(5, res_phone);
+			ps.setString(6, res_time);
+			ps.setTimestamp(7, new Timestamp(new Date().getTime()));
+			ps.setString(8,res_comment);
+			ps.setBinaryStream(9, res_img1.getInputStream(),(int) res_img1.getSize());
+			ps.setBinaryStream(10, res_img2.getInputStream(),(int) res_img2.getSize());
+			ps.setBinaryStream(11, res_img3.getInputStream(),(int) res_img3.getSize());
 			
 			ps.executeUpdate();
 			
-			response.sendRedirect("input_res_info.jsp");
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

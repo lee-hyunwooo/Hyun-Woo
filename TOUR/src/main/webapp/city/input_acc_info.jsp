@@ -8,15 +8,23 @@
 </head>
 <body>
 	
-	<form action=FukuokaAccServlet method ="post" enctype="multipart/form-data">
-		<label for ="acc_id">숙소 번호 : </label>
-		<input type ="text" name="acc_id" id="acc_id" required> <br>
+	<form action="/Fukuoka/acc/FukuokaAccServlet" method ="post" enctype="multipart/form-data">
 		
 		<label for ="user_id">유저 이름 : </label>
 		<input type ="text" name="user_id" id="user_id" required> <br>
 		
-		<label for ="city_name">도시 이름 : </label>
-		<input type ="text" name="city_name" id="city_name" required> <br>
+		<p id="city_name">
+				<label for ="city_name">도시</label> <br>
+                <input type="radio" id ="city_name"name="city_name" value="Osaka">오사카
+                <input type="radio" id ="city_name"name="city_name" value="Sapporo">삿포로
+                <input type="radio" id ="city_name"name="city_name" value="Nagasaki">나가사키
+                <input type="radio" id ="city_name"name="city_name" value="Tokyo">도쿄
+                <input type="radio" id ="city_name"name="city_name" value="Shizuoka">시즈오카
+                <input type="radio" id ="city_name"name="city_name" value="Kyoto">교토
+                <input type="radio" id ="city_name"name="city_name" value="Nagoya">나고야
+                <input type="radio" id ="city_name"name="city_name" value="Fukuoka">후쿠오카
+		
+			</p>
 		
 		<label for ="acc_name">숙소 이름 : </label>
 		<input type ="text" name="acc_name" id="acc_name" required> <br>

@@ -22,10 +22,10 @@ public class NagoyaTour {
 	private String tour_img2;
 	private String tour_img3;
 	
-	public NagoyaTour(int tour_id, String user_id, int city_id, String tour_name, String tour_location, String tour_phone, String tour_time, String tour_date, String tour_comment, String tour_img1, String tour_img2, String tour_img3) {
+	public NagoyaTour(int tour_id, String user_id, String city_name, String tour_name, String tour_location, String tour_phone, String tour_time, String tour_date, String tour_comment, String tour_img1, String tour_img2, String tour_img3) {
 		this.tour_id = tour_id;
 		this.user_id = user_id;
-		this.city_id = city_id;
+		this.city_name = city_name;
 		this.tour_name = tour_name;
 		this.tour_location = tour_location;
 		this.tour_phone = tour_phone;
