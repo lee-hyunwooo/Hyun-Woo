@@ -34,8 +34,14 @@
 		<label for ="tour_comment">관광지 정보 : </label>
 		<input type ="text" name="tour_comment" id="tour_comment" required> <br>
 		
-		<label for="tour_img"> 이미지 : </label>
-		<input type = "file" name = "tour_img" id="tour_img" required> <br>
+		<label for="tour_img1"> 이미지 : </label>
+		<input type = "file" name = "tour_img1" id="tour_img1" required> <br>
+		
+		<label for="tour_img2"> 이미지 : </label>
+		<input type = "file" name = "tour_img2" id="tour_img2" required> <br>
+		
+		<label for="tour_img3"> 이미지 : </label>
+		<input type = "file" name = "tour_img3" id="tour_img3" required> <br>
 		
 		<button type="submit">업로드</button>
 

@@ -33,23 +33,15 @@
 카테고리 :	 <%= bd.getCategory() %><br>
 제목 : 	 <%= bd.getTitle() %><br>
 내용 :  	 <%= bd.getContent() %><br>
-			
-			<%
-BoardDAO boardDAO = new BoardDAO();
-	List<BoardDTO> boards = boardDAO.getAllBoards();
-	
-		for(BoardDTO b : boards) {
-	%>
+
+
 		
-		<input type = "text" id ="post_number" name="post_number" value="<%= b.getPost_number() %>">
-		
+		<input type = "text" id ="post_number" name="post_number" value="<%= post_number %>" style="display: none;">
 		<input type ="submit" value="삭제하기">
+		
 	</form>
 	
-<%
-		}
-%>
-	
+
 <a href="boardDelete.jsp">삭제하기</a>
 <a href="update_board.jsp">수정하기</a>
 <a href="review.jsp"><img src="./1.jpeg"></a>
