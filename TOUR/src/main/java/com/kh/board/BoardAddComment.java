@@ -14,7 +14,6 @@ public class BoardAddComment extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		int review_number = Integer.parseInt(request.getParameter("review_number"));
 		int POST_NUMBER = Integer.parseInt(request.getParameter("POST_NUMBER"));
 		int review_date = Integer.parseInt(request.getParameter("review_date"));
@@ -41,14 +40,11 @@ public class BoardAddComment extends HttpServlet {
 		
 		
 		
-	
 		BoardComment comment= new BoardComment(user_id, review_content, review_writer, review_number,POST_NUMBER,review_date,review_like);
 		
 
-		
 		BoardDAO boardDAO = new BoardDAO();
 		boardDAO.addComment(comment);
-		
 		
 		response.sendRedirect("boardDetail.jsp?productId=" + user_id);
 	}

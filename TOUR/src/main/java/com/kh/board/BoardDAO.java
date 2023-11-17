@@ -10,8 +10,8 @@ import java.util.List;
 
 public class BoardDAO {
 	private static final String jdbcURL = "jdbc:oracle:thin:@localhost:1521:xe";
-	private static final String jdbcUsername = "TRAVEL";
-	private static final String jdbcPassword = "TRAVEL1234";
+	private static final String jdbcUsername = "tour";
+	private static final String jdbcPassword = "1234";
 	
 	public BoardDAO() {
 		try {
@@ -109,7 +109,6 @@ public class BoardDAO {
     	 
      }
     
-    //
      public ArrayList<BoardComment> getCommentsByProductId(String user_id){
     	 ArrayList<BoardComment> boardList = new ArrayList<>();
     	 try {
