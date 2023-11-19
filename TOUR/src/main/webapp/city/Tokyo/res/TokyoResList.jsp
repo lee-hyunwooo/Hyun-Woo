@@ -62,9 +62,9 @@
         for (TokyoRes r : ress) {
     %>
     <div class="tour">
-        <p><a href="TokyoResdetail.jsp?tour_id=<%= r.getRes_id()%>"><%= r.getRes_name() %></a></p>
+        <p><a href="TokyoResdetail.jsp?res_id=<%= r.getRes_id()%>"><%= r.getRes_name() %></a></p>
         <div class="all">
-            <a href="TokyoResdetail.jsp?tour_id=<%= r.getRes_id()%>"><img src="<%=r.getRes_img1() %>"></img></a>
+            <a href="TokyoResdetail.jsp?res_id=<%= r.getRes_id()%>"><img src="<%=r.getRes_img1() %>"></img></a>
         </div>
     </div>
     <%

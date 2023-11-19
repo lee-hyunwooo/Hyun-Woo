@@ -77,7 +77,7 @@ public class FukuokaTourDAO {
 	    	
 	    	try {
 				Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-				String sql = "SELECT USER_ID, CITY_ID, TOUR_NAME, TOUR_LOCATION, TOUR_PHONE, TOUR_TIME, TOUR_DATE, TOUR_COMMENT, TOUR_IMG1, TOUR_IMG2, TOUR_IMG3  FROM tour WHERE tour_id = ?";
+				String sql = "SELECT USER_ID, city_name, TOUR_NAME, TOUR_LOCATION, TOUR_PHONE, TOUR_TIME, TOUR_DATE, TOUR_COMMENT, TOUR_IMG1, TOUR_IMG2, TOUR_IMG3  FROM tour WHERE tour_id = ?";
 				PreparedStatement ps = connection.prepareStatement(sql);
 				ps.setInt(1, tour_id);
 				ResultSet rs = ps.executeQuery();

@@ -62,9 +62,9 @@
         for (SapporoAcc a : accs) {
     %>
     <div class="tour">
-        <p><a href="SapporoAccdetail.jsp?tour_id=<%= a.getAcc_id()%>"><%= a.getAcc_name() %></a></p>
+        <p><a href="SapporoAccdetail.jsp?acc_id=<%= a.getAcc_id()%>"><%= a.getAcc_name() %></a></p>
         <div class="all">
-            <a href="SapporoAccdetail.jsp?tour_id=<%= a.getAcc_id()%>"><img src="<%=a.getAcc_img1() %>"></img></a>
+            <a href="SapporoAccdetail.jsp?acc_id=<%= a.getAcc_id()%>"><img src="<%=a.getAcc_img1() %>"></img></a>
         </div>
     </div>
     <%

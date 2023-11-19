@@ -62,9 +62,9 @@
         for (NagasakiRes r : ress) {
     %>
     <div class="tour">
-        <p><a href="NagasakiResdetail.jsp?tour_id=<%= r.getRes_id()%>"><%= r.getRes_name() %></a></p>
+        <p><a href="NagasakiResdetail.jsp?res_id=<%= r.getRes_id()%>"><%= r.getRes_name() %></a></p>
         <div class="all">
-            <a href="NagasakiResdetail.jsp?tour_id=<%= r.getRes_id()%>"><img src="<%=r.getRes_img1() %>"></img></a>
+            <a href="NagasakiResdetail.jsp?res_id=<%= r.getRes_id()%>"><img src="<%=r.getRes_img1() %>"></img></a>
         </div>
     </div>
     <%

@@ -56,15 +56,15 @@
 <body>
 <div class="tour-container">
     <%
-    KyotoAccDAO resDAO = new KyotoAccDAO();
-        List<KyotoAcc> accs = resDAO.getAllAccs();
+    KyotoAccDAO accDAO = new KyotoAccDAO();
+        List<KyotoAcc> accs = accDAO.getAllAccs();
 
         for (KyotoAcc a : accs) {
     %>
     <div class="tour">
-        <p><a href="KyotoAccdetail.jsp?tour_id=<%= a.getAcc_id()%>"><%= a.getAcc_name() %></a></p>
+        <p><a href="KyotoAccdetail.jsp?acc_id=<%= a.getAcc_id()%>"><%= a.getAcc_name() %></a></p>
         <div class="all">
-            <a href="KyotoAccdetail.jsp?tour_id=<%= a.getAcc_id()%>"><img src="<%=a.getAcc_img1() %>"></img></a>
+            <a href="KyotoAccdetail.jsp?acc_id=<%= a.getAcc_id()%>"><img src="<%=a.getAcc_img1() %>"></img></a>
         </div>
     </div>
     <%
