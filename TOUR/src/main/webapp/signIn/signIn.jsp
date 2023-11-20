@@ -11,11 +11,16 @@
 <title>회원가입</title>
 
 </head>
+<style>
+</style>
 <body>
+
 	<form
 		action="<%=request.getContextPath()%>/LoginServlet?action=signIn"
 		method="post">
-		<header>
+		
+	<header>
+		
 		<section>
 		
 			<h1>회원가입</h1>
@@ -72,6 +77,7 @@
 			</o>
 		
 		</section>
+		
 		</header>
 	</form>
 	
