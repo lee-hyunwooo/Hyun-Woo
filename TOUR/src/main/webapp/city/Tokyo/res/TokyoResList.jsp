@@ -54,6 +54,7 @@
     </style>
 </head>
 <body>
+<h1>도쿄 식당</h1>
 <div class="tour-container">
     <%
     TokyoResDAO resDAO = new TokyoResDAO();

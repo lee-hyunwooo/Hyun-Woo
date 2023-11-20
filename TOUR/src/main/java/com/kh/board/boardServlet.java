@@ -34,7 +34,6 @@ public class boardServlet extends HttpServlet {
 			Class.forName("oracle.jdbc.OracleDriver");
 			connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
 			int post_number =Integer.parseInt(request.getParameter("post_number"));
-			//SQL ����
 			String sql = "SELECT * FROM boards";
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ResultSet resultSet = ps.executeQuery();
@@ -116,5 +115,4 @@ public class boardServlet extends HttpServlet {
 		
 		
 	}
-
 }

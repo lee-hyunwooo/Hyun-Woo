@@ -11,8 +11,9 @@
     <script type="text/javascript" src="./asd.js"></script>
 
     <meta charset="UTF-8">
-    <title>Insert title here</title>
+    <title>오사카 호텔</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
         p {
             font-size: 20px;
             text-align: center;
@@ -51,13 +52,22 @@
         .all {
             text-align: center;
         }
+        
+        h2 {
+        	text-align: center;
+        	margin-top: 70px;
+        	color: #EE9CA7;
+        	font-family: 'Bagel Fat One', sans-serif;
+        	font-size: 70px;
+        }
     </style>
 </head>
 <body>
+<h2>오사카 호텔</h2>
 <div class="tour-container">
     <%
-    OsakaAccDAO resDAO = new OsakaAccDAO();
-        List<OsakaAcc> accs = resDAO.getAllAccs();
+    OsakaAccDAO accDAO = new OsakaAccDAO();
+        List<OsakaAcc> accs = accDAO.getAllAccs();
 
         for (OsakaAcc a : accs) {
     %>

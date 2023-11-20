@@ -36,8 +36,8 @@ public class SapporoTourDAO {
 	              
 	                int tour_id = rs.getInt("tour_id");
 	                String user_id = rs.getString("user_id");
-	                String city_name = rs.getString("city_name");
 	                String tour_name = rs.getString("tour_name");
+	                String city_name = rs.getString("city_name");
 	                String tour_location = rs.getString("tour_location");
 	                String tour_phone = rs.getString("tour_phone");
 	                String tour_time = rs.getString("tour_time");

@@ -7,21 +7,22 @@
 <html>
 <head>
     <meta charset="EUC-KR">
-    <title>Insert title here</title>
+    <title>오사카 관광지 상세정보</title>
     <style>
-        /* Style for the image slider container */
+        @import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
         
         h1{
-        	background: red;
+        	background: ;
         	text-align:center;
-        	
+        	color: #EE9CA7;
         	padding: 80px;
-        
+        	font-family: 'Bagel Fat One', sans-serif;
+       		font-size: 70px;
         
         }
         .image-slider {
             max-width: 1000px;
-            margin-left: 10%;
+            margin-left: 35%;
             margin-top: 10%;
             overflow: hidden;
             height: 1000px; /* Set a fixed height for the container */
@@ -49,6 +50,18 @@
             opacity: 1;
         }
         
+        h2 {
+	text-align: center;
+	margin-top: 10px;
+	margin-right: 2%;
+	color: #EE9CA7;
+	font-size: 35px;
+	text-shadow: 5px 5px 25px #EE9CA7; 
+	font-family: 'Bagel Fat One', sans-serif;
+	
+	
+}
+        
        
     </style>
 </head>
@@ -68,12 +81,12 @@
     <img src="<%= td.getTour_img3() %>" width="800" height="600">
     </div>
 
-    <p>도시 이름: <%= td.getCity_id()%> </p>
-    <p>관광지 이름: <%= td.getTour_name()%></p>
-    <p>관광지 주소: <%= td.getTour_location()%></p>
-    <p>관광지 전화번호: <%= td.getTour_phone()%></p>
-    <p>운영시간: <%= td.getTour_time()%></p>
-    <p>관광지 정보:</p>
+    <h2>도시 이름: <%= td.getCity_id()%> </h2>
+    <h2>관광지 이름: <%= td.getTour_name()%></h2>
+    <h2>관광지 주소: <%= td.getTour_location()%></h2>
+   <h2>관광지 전화번호: <%= td.getTour_phone()%></h2>
+    <h2>운영시간: <%= td.getTour_time()%></h2>
+    <h2>관광지 정보:</h2>
 
     <script>
         // JavaScript to handle the image slider

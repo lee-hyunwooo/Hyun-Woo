@@ -11,8 +11,9 @@
     <script type="text/javascript" src="./asd.js"></script>
 
     <meta charset="UTF-8">
-    <title>Insert title here</title>
+    <title>오사카 관광지</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
         p {
             font-size: 20px;
             text-align: center;
@@ -51,9 +52,18 @@
         .all {
             text-align: center;
         }
+        
+        h2 {
+        	text-align: center;
+        	margin-top: 70px;
+        	color: #EE9CA7;
+        	font-family: 'Bagel Fat One', sans-serif;
+        	font-size: 70px;
+        }
     </style>
 </head>
 <body>
+ <h2>오사카 관광지</h2>
 <div class="tour-container">
     <%
     OsakaTourDAO tourDAO = new OsakaTourDAO();

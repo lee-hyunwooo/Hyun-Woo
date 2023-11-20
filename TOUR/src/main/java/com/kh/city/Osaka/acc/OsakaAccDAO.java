@@ -36,8 +36,8 @@ public class OsakaAccDAO {
 	              
 	                int acc_id = rs.getInt("acc_id");
 	                String user_id = rs.getString("user_id");
-	                String city_name = rs.getString("city_name");
 	                String acc_name = rs.getString("acc_name");
+	                String city_name = rs.getString("city_name");
 	                String acc_location = rs.getString("acc_location");
 	                String acc_phone = rs.getString("acc_phone");
 	                String acc_time = rs.getString("acc_time");

@@ -36,8 +36,8 @@ public class OsakaResDAO {
 	              
 	                int res_id = rs.getInt("res_id");
 	                String user_id = rs.getString("user_id");
-	                String city_name = rs.getString("city_name");
 	                String res_name = rs.getString("res_name");
+	                String city_name = rs.getString("city_name");
 	                String res_location = rs.getString("res_location");
 	                String res_phone = rs.getString("res_phone");
 	                String res_time = rs.getString("res_time");

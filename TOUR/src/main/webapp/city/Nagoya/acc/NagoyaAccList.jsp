@@ -56,8 +56,8 @@
 <body>
 <div class="tour-container">
     <%
-    NagoyaAccDAO resDAO = new NagoyaAccDAO();
-        List<NagoyaAcc> accs = resDAO.getAllAccs();
+    NagoyaAccDAO accDAO = new NagoyaAccDAO();
+        List<NagoyaAcc> accs = accDAO.getAllAccs();
 
         for (NagoyaAcc a : accs) {
     %>

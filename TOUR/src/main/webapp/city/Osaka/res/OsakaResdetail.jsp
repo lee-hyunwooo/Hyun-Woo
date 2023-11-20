@@ -7,27 +7,28 @@
 <html>
 <head>
     <meta charset="EUC-KR">
-    <title>Insert title here</title>
+    <title>오사카 식당 상세정보</title>
     <style>
-        /* Style for the image slider container */
-        
+       @import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
         h1{
-        	background: red;
+        	background: ;
         	text-align:center;
-        	
+        	color: #EE9CA7;
         	padding: 80px;
-        
+        	font-family: 'Bagel Fat One', sans-serif;
+       		font-size: 70px;
         
         }
         .image-slider {
             max-width: 1000px;
-            margin-left: 10%;
+            margin-left: 35%;
             margin-top: 10%;
             overflow: hidden;
             height: 1000px; /* Set a fixed height for the container */
             position: relative; /* Add relative positioning for absolute positioning of images */
       		filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.5));
         }
+
 
         /* Style for the individual images */
         .image-slider img {
@@ -49,6 +50,18 @@
             opacity: 1;
         }
         
+        h2 {
+		text-align: center;
+		margin-top: 10px;
+		margin-right: 2%;
+		color: #EE9CA7;
+		font-size: 30px;
+		text-shadow: 5px 5px 25px #EE9CA7; 
+		font-family: 'Bagel Fat One', sans-serif;
+	
+	
+}
+        
        
     </style>
 </head>
@@ -59,7 +72,7 @@
         int res_id = Integer.parseInt(res_idValue);
         OsakaRes rd = new OsakaResDAO().getRes(res_id);
     %>
-    <h1><%= rd.getRes_name() %>관광지상세정보</h1>
+    <h1><%= rd.getRes_name() %>식당 상세정보</h1>
 
     <!-- Create a container for the images -->
     <div class="image-slider">
@@ -68,12 +81,12 @@
     <img src="<%= rd.getRes_img3() %>" width="800" height="600">
     </div>
 
-    <p>도시 이름: <%= rd.getCity_name()%> </p>
-    <p>관광지 이름: <%= rd.getRes_name()%></p>
-    <p>관광지 주소: <%= rd.getRes_location()%></p>
-    <p>관광지 전화번호: <%= rd.getRes_phone()%></p>
-    <p>운영시간: <%= rd.getRes_time()%></p>
-    <p>관광지 정보:</p>
+    <h2>도시 이름: <%= rd.getCity_name()%> </h2>
+    <h2>관광지 이름: <%= rd.getRes_name()%></h2>
+    <h2>관광지 주소: <%= rd.getRes_location()%></h2>
+    <h2>관광지 전화번호: <%= rd.getRes_phone()%></h2>
+    <h2>운영시간: <%= rd.getRes_time()%></h2>
+    <h2>관광지 정보:</h2>
 
     <script>
         // JavaScript to handle the image slider

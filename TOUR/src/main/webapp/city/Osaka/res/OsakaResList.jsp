@@ -13,7 +13,11 @@
     <meta charset="UTF-8">
     <title>Insert title here</title>
     <style>
-        p {
+       @import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
+  
+
+        
+p {
             font-size: 20px;
             text-align: center;
             padding-top: 150px;
@@ -51,9 +55,19 @@
         .all {
             text-align: center;
         }
+        
+        h1 {
+        	text-align: center;
+        	margin-top: 70px;
+        	color: #EE9CA7;
+        	font-family: 'Bagel Fat One', sans-serif;
+        	font-size: 70px;
+        }
+
     </style>
 </head>
 <body>
+<h1>오사카 식당</h1>
 <div class="tour-container">
     <%
     OsakaResDAO resDAO = new OsakaResDAO();

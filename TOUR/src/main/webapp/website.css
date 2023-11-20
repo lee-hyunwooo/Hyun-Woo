@@ -1,5 +1,5 @@
 @charset "EUC-KR";
-
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
 .top10 {
     margin-left: 15%;
     margin-right: 15%;
@@ -26,7 +26,6 @@
     
 }
 #topMenu ul {
-    /*메인 메뉴 안의 ul을 설정함: 상위 메뉴의 ul+하위 메뉴의 ul*/
     list-style-type: none;
     margin: 0px;
     padding: 0px;
@@ -36,7 +35,7 @@
 
 #topMenu ul li {
     color: white;
-    background-color: #2d2d2d;
+    background-color: #EE9CA7;
     float: left;
     line-height: 30px;
     vertical-align:middle;
@@ -61,8 +60,8 @@
 }
 
 .Menu:hover .menuLink {
-    color: red;
-    background-color: #4d4d4d;
+    color: white;
+    background-color: #EE9CA7;
     
 }
 
@@ -143,8 +142,8 @@
 }
 
 .sub:hover {
-    color: red;
-    background-color: #dddddd;
+    color: white;
+    background-color: #EE9CA7;
 }
 
 
@@ -190,9 +189,9 @@ section {
     padding: 300px;
     margin-top: 50px;
     text-align: center;
-    border: 1px solid #888;
-    background-color: white;
-    color: #2d2d2d;
+    border: 1px solid #EE9CA7;
+    background-color: #EE9CA7;
+    color: white;
     
 }
 
@@ -213,10 +212,3 @@ img {
     height: 300px;
     border-radius: 10px;
 }
-
-
-
-
-
-
-

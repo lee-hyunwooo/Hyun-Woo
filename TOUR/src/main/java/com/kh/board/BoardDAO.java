@@ -109,7 +109,6 @@ public class BoardDAO {
         }
         return false;
     }
-	/*----------------------------------------´ñ±Û--------------------------------------------------------*/
 	public BoardComment getBoardCommentById(String user_id) {
 		
 		BoardComment bc = null;
@@ -137,7 +136,6 @@ public class BoardDAO {
 		return bc;
 	
 	}
-	/* all ´ñ±Û Á¶È¸*/
 	   public ArrayList<BoardComment> getCommentsByProductId(int post_number) {
 		   ArrayList<BoardComment> commentList = new ArrayList<>();
 
@@ -169,4 +167,28 @@ public class BoardDAO {
 
 	        return commentList;
 	}
+	   
+	   public List<BoardDTO> getBoardsByUserId(String user_id) {
+		    List<BoardDTO> userBoards = new ArrayList<>();
+		    try {
+		        Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+		        String sql = "SELECT * FROM boards WHERE user_id = ?";
+		        PreparedStatement ps = connection.prepareStatement(sql);
+		        ps.setString(1, user_id);
+		        ResultSet rs = ps.executeQuery();
+		        while (rs.next()) {
+		            BoardDTO board = new BoardDTO();
+		            board.setPost_number(rs.getInt("post_number"));
+		            board.setCity_name(rs.getString("city_name"));
+		            board.setCategory(rs.getString("category"));
+		            board.setTitle(rs.getString("title"));
+		            board.setPost_time(rs.getString("post_time"));
+		            userBoards.add(board);
+		        }
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+		    return userBoards;
+		}
+
 }

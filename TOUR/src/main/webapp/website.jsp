@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Document</title>
+<title>메인</title>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
 	integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
@@ -12,13 +12,14 @@
 <link rel="stylesheet" type="text/css" href="website.css">
 
 <style>
-
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
 .top10 {
-	margin-left: 15%;
+	margin-left: 12%;
 	margin-right: 15%;
 	width: 75%;
 	height: 500px;
 	margin-bottom: 25px;
+	flex-wrap: wrap;
 
 }
 
@@ -35,49 +36,107 @@ img {
 
 
 .mainImage {
-    width: 1000px;
-    height: 700px;
-    margin-top: 500px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    margin-bottom: 80px;
+    margin-left: 15%;
+    
+}
+
+.mainImage a {
+    flex: 0 0 40%; /* Adjust the width of each image container */
+    margin: 10px; /* Add some margin to provide space between images */
+}
+
+.mainImage img {
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    right:15%;
 }
 
 .main_logo {
-	color: #7AB730;
+	color:  #EE9CA7;
 	text-decoration-line: none;
-	font-size: 25px;
-	margin-left: 15%;
+	font-size: 80px;
+	margin-left: 10%;
+	font-family: 'Bagel Fat One', sans-serif;
+	text-shadow: 5px 5px 20px #EE9CA7;
 }
 
-.main_title2 {
-	color: black;
-}
+
+
+
 
 #dropdownBtn {
-	display: inline-block;
 	position: relative;
-	margin-left: 65%;
+	margin-left: 50%;
+	background-color: #EE9CA7;
+	color: #fff;
+	border: none;
+    padding: 10px 30px;
+    border-radius: 50px;
+    width:170px;
+    font-size: 16px;
+    font-weight: 600;
+	background-size: 290% 100%;
+	
+	moz-transition: all .4s ease-in-out;
+	-o-transtion: all .4s ease-in-out;
+	-webkit-transition: all .4s ease-in-out;
+	transition: all .4s ease-in-out;
+	
+	background-image: linear-gradient(to right, #ed6ea0,#ec8c69, #f7186a , #FBB03B);
+	box-shadow: 0 4px 15px 0 rgba(236,116,149,0.75);
+	left: 13%;
+	
 }
+
+
+#dropdownBtn:hover {
+	background-position: 100% 0;
+	moz-transition: all .4s ease-in-out;
+	-o-transition: all .4s ease-in-out;
+	-webkit-transition: all .4s ease-in-out;
+	transition: all .4s ease-in-out;
+	
+}
+
+
+#dropdownBtn:focus {
+	outline: none;
+}
+
+
+
+
 
 #dropdownContent {
 	display: none;
 	position: absolute;
-	background-color: #f9f9f9;
+	background-color: white;
 	min-width: 150px;
 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 	z-index: 1;
+	border-radius: 20px;
 }
 
 #dropdownContent a {
 	color: black;
-	padding: 12px 16px;
+	padding: 16px 16px;
 	text-decoration: none;
 	display: block;
+
+	
 }
 
 #dropdownContent a:hover {
-	background-color: #f1f1f1;
+	background-color: #EE9CA7;
+	color: white;
+	border-radius: 20px;
 }
 
 
@@ -91,12 +150,18 @@ img {
 	height: 300px;
 }
 
+#topMenu {
+	padding: 20px;
+
+	
+
+}
 #topMenu ul {
 	
     display: flex;
     list-style: none;
     padding: 0;
-    margin-bottom: 100px;
+    margin-bottom: 30px;
 
     
     
@@ -104,6 +169,7 @@ img {
 
 #topMenu li {
     margin-right: 0px;
+    
    
     
 }
@@ -130,17 +196,33 @@ img {
 #topMenu li:hover .submenu2,
 #topMenu li:hover .submenu3 {
     display: flex;
+    
 }
 
 
-.text {
+h2 {
 	text-align: center;
-	margin-top: 300px;
+	margin-top: 100px;
 	color: #EE9CA7;
-	font-size: 60px;
+	font-size: 100px;
+	text-shadow: 5px 5px 25px #EE9CA7; 
+	font-family: 'Bagel Fat One', sans-serif;
 	
-
+	
 }
+
+p {
+ margin-right: 50%;
+color: #EE9CA7;
+	font-size: 30px;
+	text-shadow: 5px 5px 25px #EE9CA7; 
+	font-family: 'Bagel Fat One', sans-serif;
+}
+
+
+
+
+
 
 
 
@@ -154,7 +236,7 @@ img {
 	
 		<a href="mainpage.jsp" class="main_logo">
 			<h1 style="display: inline-block;">
-				떠나<span class="main_title2">조</span>
+				<span class="main_title2">떠나조</span>
 			</h1>
 		</a> 
 		<%
@@ -197,14 +279,12 @@ img {
 		
 
 		<div id="imageSlider">
-			<a href=""><img src="../Image/오도리공원.jpg" class="top10"
+			<a href=""><img src="./Image/1.jpg" class="top10"
 				alt=""></a> <a href=""><img
-				src="./main/Image/시로이코이비토 파크.jpg" class="top10" alt=""></a>
-			<a href=""><img src="/main/Image/시로이코이비토 파크.jpg" class="top10"
+				src="./Image/2.jpg" class="top10" alt=""></a>
+			<a href=""><img src="./Image/4.jpg" class="top10"
 				alt=""></a> <a href=""><img
-				src="./Image/시로이코이비토 파크.jpg" class="top10" alt=""></a> <a
-				href=""><img src="../Image/홋카이도 신궁.jpg"
-				class="top10" alt=""></a>
+				src="./Image/4.jpg" class="top10" alt=""></a> 
 				
 		</div>
 		<!-- Navbar End -->
@@ -287,12 +367,9 @@ img {
 
 
 <div class="text">
-			<div>
-				<h2><b>미리보기</h2>
 			
-			</div>
 
-
+		<h2>떠나조</h2>
 
 
 </div>
@@ -302,15 +379,12 @@ img {
 		
 		
 	<div class="mainImage">	
-		<a href=""><img src="./main/Image/나카미세도리.jpg" class="top10"
-				alt=""></a> <a href=""><img
-				src="../main/Image/나카미세도리.jpg" class="top10" alt=""></a>
-			<a href=""><img src="../Image/소메타로.jpg" class="top10"
-				alt=""></a> <a href=""><img
-				src="./Image/나카미세도리.jpg" class="top10" alt=""></a> <a
-				href=""><img src="../Image/나카미세도리.jpg"
-				class="top10" alt=""></a>
-				<a href=""><img src="나카미세도리.jpg" class="top10" alt=""></a>
+		<a href="webDetail.jsp"><p style="text-align: center;">오타루운하</p> <img src="./Image/1.jpg" class="top10"
+				alt=""></a> <a href="#"><p style="text-align: center;">오도리공원</p><img
+				src="./Image/2.jpg" class="top10" alt=""></a>
+			<a href=""><p style="text-align: center;">시로이코이비토 파크</p><img src="./Image/4.jpg" class="top10"
+				alt=""></a> <a href="#"><p style="text-align: center;">홋카이도 신궁</p><img
+				src="./Image/5.jpg" class="top10" alt=""></a> 
 		
 	</div>
 	

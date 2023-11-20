@@ -56,8 +56,8 @@
 <body>
 <div class="tour-container">
     <%
-    NagasakiAccDAO resDAO = new NagasakiAccDAO();
-        List<NagasakiAcc> accs = resDAO.getAllAccs();
+    NagasakiAccDAO accDAO = new NagasakiAccDAO();
+        List<NagasakiAcc> accs = accDAO.getAllAccs();
 
         for (NagasakiAcc a : accs) {
     %>
